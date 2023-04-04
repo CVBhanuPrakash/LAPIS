@@ -1,0 +1,85 @@
+{% extends 'index_base.html' %}
+{% block content %}
+
+
+<head>
+    <link rel="stylesheet" href="../../static/css/student_report.css">
+</head>
+
+    <div class="continer">
+        <div id="header">
+            <h2>LaPIS - Student Report</h2>
+        </div>
+        <br>
+        <form action="{{ url_for('student_report')}}" method="POST" enctype = "multipart/form-data">
+        <div class="drop">
+            <div class="dropdown" id="d1">
+                <label  for="school-names">School Name</label>
+                <select class="dropdowns" name="school-names" id="select-school" onchange="selectClass()">
+                    <!-- <option value="">Select School Name</option> -->
+                </select>
+            </div>
+            <div class="dropdown" id="d2">
+                <label for="class">Class</label>
+                <select class="dropdowns" name="class" id="class" onchange="selectSection()">
+                    <option value="">Select Class</option>
+                </select>
+            </div>
+            <div class="dropdown" id="d3">
+                <label for="Section">Section</label>
+                <select class="dropdowns" name="section" id="Section" onchange="NameStudent()">
+                    <option value="">Select Section</option>
+                </select>
+            </div>
+            <div class="dropdown" id="d4">
+                <label for="subject-name">Subject</label>
+                <select class="dropdowns" name="subject-name" id="subject-names">
+                    <option value="">Select Subject</option>
+                    <option value="science">Science</option>
+                    <option value="maths">Maths</option>
+                </select>
+            </div>
+            <div class="dropdown" id="d5">
+                <label for="student-name">Student</label>
+                <select class="dropdowns" name="student-name" id="student-names">
+                    <option value="">Select Student Name</option>
+                </select>
+            </div>
+        </div>
+        <br><br>
+        <div class="buttonss">
+            <div id="button1">
+                <button type="submit" class="btn btn-primary but-size px-5" onclick="createTable()">Preview List</button>
+            </div>
+            <div id="button2">
+                <button type="submit" class="btn btn-primary but-size px-5">Generate Report</button>
+            </div>
+        </div>
+    </form>
+    </div>
+    <!-- <button style="background-color:black ;color: white;" type="submit" onclick="createTable()">Preview</button>
+             &#160;&#160;
+           <button style="background-color:black ;color: white;" type="submit">Generate Report</button> -->
+
+    <br>
+    <br>
+    <div class="stu-table">
+        <table border="2" class="Table">
+            <!-- <tr>
+            <th>Schoo Name</th>
+            <th>Class</th>
+            <th>Section</th>
+            <th>Name</th>
+        </tr>
+
+        <tr>
+            <td>Lotus public schol</td>
+            <td>7</td>
+            <td>A</td>
+            <td>Chandra Shekar</td>
+        </tr> -->
+        </table>
+    </div>
+    <script src="../../static/js/student_report.js"></script>
+
+{% endblock content %}

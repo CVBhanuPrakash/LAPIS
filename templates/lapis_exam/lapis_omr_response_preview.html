@@ -1,0 +1,56 @@
+{% extends 'index_base.html' %}
+
+{% block content %}
+
+<head>
+  <link rel="stylesheet" href="../../static/css/lapis_styles.css">
+</head>
+  <div class="container" style="width: 74%;">
+
+    <h3 style="text-align: center;"> PREVIEW </h3>
+          
+
+      <br/>
+      <div class="table-responsive-sm">          
+        <table class="table table-bordered" >
+            <thead>
+                <tr>
+                    <th>Lapis Roll number</th>
+                    <th>Question paper code</th>
+                    <th>Question number in question paper</th>
+                    <th>Response</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for response in omr_response %}
+                <tr>
+                    <td>{{response['lapis_roll_number']}}</td>
+                    <td>{{response['question_paper_code']}}</td>
+                    <td>{{response['question_number_in_question_paper']}}</td>
+                    <td>{{response['response']}}</td>
+                </tr>
+    
+            {% endfor%}
+            </tbody>
+        </table>
+    
+    </div>
+    <br/>
+
+
+      <form class="form" action="{{ url_for('lapis_omr_response')}}" method="POST" enctype = "multipart/form-data">
+        <div class="row">
+          <div class="col-8"></div>
+          <div class="col-2">
+              <button class="cancel-button btn btn-danger" type="button" onclick="history.back()">Cancel</button>
+          </div>
+            <div class="col-2">
+              <input class="submit-button btn btn-success" type="submit" value="upload" name="submit_target">
+          </div>
+      </div>
+    </form>
+   
+       </div>
+
+
+{% endblock content %}

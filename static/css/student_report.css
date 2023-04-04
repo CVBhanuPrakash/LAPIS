@@ -1,0 +1,158 @@
+/* body {
+    border: 0em;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr 0.2fr 5fr;
+    grid-template-areas:
+        "header header header header header"
+        "d1 d2 d3 d4 d5"
+        "none b1 b2 none none"
+        "table table table table table";
+    grid-gap: 0.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #004d40;
+    text-align: center;
+} */
+
+/* div {
+    position: absolute;
+    top: 8em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+} */
+
+/* h1 {
+    background-color: black;
+    color: white;
+    text-decoration: solid;
+    background-color: black;
+    width: max-content;
+    padding: 0.3rem 1rem;
+    position: absolute;
+    right: 0em
+} */
+
+/* .dropdowns {
+    padding: 0.2rem 1rem;
+    background-color: rgb(233, 231, 231);
+    border-radius: 10px;
+}
+
+button {
+    padding: 0.1rem;
+    border-radius: 10px;
+    color: white;
+    width: 150px;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+} */
+
+/* button:hover {
+    background-color: black;
+    color: white;
+    border: solid black 1px;
+} */
+
+/* 
+.Table {
+    border-collapse: collapse;
+    width: 75%;
+}
+
+th {
+    background-color: #a4e2cb;
+    color: white;
+}
+
+table,
+th,
+td {
+    text-align: center;
+}
+
+th,
+td {
+    padding: 5px;
+    background-color: none;
+}
+
+tr:hover {
+    background-color: rgb(162, 175, 175);
+} */
+
+
+#header{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+body{
+    margin: 0;
+}
+
+h2{
+    background-color: black;
+    padding: 1rem;
+    color: white;
+}
+
+.drop{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start; 
+    margin: 0rem 4rem; 
+    /* align-items: end;   */
+}
+
+.dropdown{
+    display: flex;
+    flex-direction: column;
+    margin: 0rem 2rem;
+}
+
+.dropdown label{
+    margin: 0%;
+}
+
+.buttonss{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+}
+#button1{
+    margin: 0rem 7rem 0rem 20rem;
+}
+
+.but-size{
+    font-size: larger;
+    margin: 0rem 1rem;
+}
+
+.stu-table{
+    display: flex;
+    justify-content: center;
+}
+
+.Table th{
+    padding: 1rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.Table td{
+    padding: 1rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}

@@ -1,0 +1,149 @@
+
+/* Body */
+
+a:link {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+ font-family:'Times New Roman', Times, serif; 
+ /* "Gill Sans", sans-serif; */
+}
+
+
+/* Body */
+
+
+/*  Sidebar  */
+.sidebar {
+    background: #2f323a;
+    margin-top: 0px;
+    padding-top: 10px;
+    position: fixed;
+    left: 0;
+    width: 260px;
+    height:100%;
+    transition: 0.5s;
+    transition-property: left;
+  }
+
+  .sidebar .profile_image {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+  }
+
+  .sidebar h4 {
+    color: #ccc;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .sidebar a {
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transition: 0.5s;
+
+  }
+
+  .sidebar a:hover {
+    background: #f1f4f5;
+    color: black;
+  }
+
+  .sidebar i {
+    padding-right: 10px;
+  }
+
+  label #sidebar_btn {
+    z-index: 1;
+    color: #fff;
+    /* position: relative; */
+    cursor: pointer;
+    left: 300px;
+    font-size: 20px;
+    margin: 5px 0;
+    transition: 0.5s;
+    transition-property: color;
+  }
+
+  label #sidebar_btn:hover {
+    color: #19B3D3;
+  }
+
+  #check:checked~.sidebar {
+    left: -196px;
+    
+  }
+
+  #check:checked~.sidebar a span {
+    display: none;
+  }
+
+  #check:checked~.sidebar a {
+    font-size: 20px;
+    margin-left: 170px;
+    width: 80px;
+  }
+
+  .content {
+    margin-left: 280px;
+    margin-right: 120px;    /* modified*/
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    transition: 0.5s;
+  }
+
+  #check:checked~.content {
+    margin-left: 60px;
+  }
+
+  #check {
+    display: none;
+  }
+
+
+  /*   Sidebar  */
+
+
+  /* messages */
+  .negative_message
+  {
+      color:red;
+      font-weight: bold;
+      text-align: center;
+  }
+  .positive_message
+  {
+      color:rgb(10, 150, 10);
+      font-weight: bold;
+      text-align: center;
+
+  }
+  /* messages */
+
+
+  /* buttons  */
+  .submit-button{
+    background-color: rgba(14, 161, 14, 0.849);
+    box-shadow: 0px 0px 12px 2px silver;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.cancel-button
+{
+  background-color: rgba(206, 62, 19, 0.849);
+  box-shadow: 0px 0px 12px 2px silver;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+  /* buttons  */

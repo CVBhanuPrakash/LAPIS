@@ -1,0 +1,60 @@
+{% extends 'index_base.html' %}
+
+{% block content %}
+ <head>
+    <link rel="stylesheet" href="../../static/css/lapis_styles.css">
+ </head>
+
+     <div class="container" style="width: 74%;">
+
+        <h3 style="text-align: center;"> PREVIEW </h3>
+        <br/>
+        
+        
+        <div class="table-responsive-sm">          
+            <table class="table table-bordered" >
+                <thead>
+                    <tr>
+                        <th>Lapis Roll number</th>
+                        <th>School Code</th>
+                        <th>Student Name</th>
+                        <th>Class</th>
+                        <th>Section</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for student in student_data %}
+                    <tr>
+                        <td>{{student['lapis_roll_number']}}</td>
+                        <td>{{student['school_code']}}</td>
+                        <td>{{student['student_name']}}</td>
+                        <td>{{student['std']}}</td>
+                        <td>{{student['section']}}</td>
+                    </tr>
+        
+                {% endfor%}
+                </tbody>
+            </table>
+        
+        </div>
+        <br/>
+
+        <form class="form" action="{{ url_for('student_data_insertion')}}" method="POST" enctype = "multipart/form-data">
+           
+            <div class="row">
+                <div class="col-8"></div>
+                <div class="col-2">
+                    <a href="{{ url_for('student_data_insertion')}}">
+                     <button class="cancel-button btn btn-danger" type="button">Cancel</button>
+                    </a>
+                </div>
+                  <div class="col-2">
+                    <input class="submit-button btn btn-success" type="submit" value="upload" name="submit_target">
+                </div>
+            </div>
+        </form>
+
+     </div>
+     <br/><br/>
+ 
+ {% endblock content %}

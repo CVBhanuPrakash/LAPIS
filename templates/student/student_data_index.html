@@ -1,0 +1,105 @@
+{% extends 'index_base.html' %}
+
+{% block content %}
+
+<head>
+  <link rel="stylesheet" href="../../static/css/lapis_styles.css">
+</head>
+  <div class="container" style="width: 74%;">
+
+    <h3 style="text-align: center;"> STUDENT DATA INSERTION</h3>
+                  {% if message[0] %}
+                          <p class="positive_message">{{ message[1] }} </p>
+                          <br/>
+                    {% elif message[0]==False %}
+                        <p class="negative_message">{{ message[1] }} </p>
+                        <br/>
+                    {% else %}
+                      <br/>
+                      <br/>
+                    {% endif %}
+
+
+      <form class="form" action="{{ url_for('student_data_insertion')}}" method="POST" enctype = "multipart/form-data">
+        
+        <div class="input-group mb-3 input-group-md form-input">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Select school</span>
+          </div>
+          <select class="form-control" id="school_names" name="school_code" required>
+            <option value="">Select School </option>
+                {% if school_details %}
+                    {% for school in school_details %}
+                        <option value="{{ school['code']}}"> {{ school['name']}} - ( school code:{{ school['code']}})</option>
+                        {% set selected_school_code=school['code'] %}
+                {% endfor %}
+  
+              {% endif %}
+         </select>
+        </div>
+ 
+        <br/>
+        <div class="mb-3">
+          <label for="formFileMultiple" class="form-label" style="margin-left: 10px;"> Choose Data File</label>
+          <input class="form-control" type="file" id="formFileMultiple" name="input_file" accept=".csv,.xlsx" required>
+          <br/>
+         </div>
+      
+      
+         <p style="margin-left: 10px;">
+            Input format: <a href="{{ url_for('download_student_data_sample_file')}}" type="text/csv" style="text-decoration: underline;" download> download sample format</a>
+         </p>
+  
+        
+        <div  style="width: 98%; margin-left:10px">
+        <div class="table-responsive-sm">          
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Lapis Roll number</th>
+                <th>School Code</th>
+                <th>Student Name</th>
+                <th>Class</th>
+                <th>Section</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>101110</td>
+                <td>25</td>
+                <td>Saran</td>
+                <td>6</td>
+                <td>A</td>
+              </tr>
+              <tr>
+                <td>101111</td>
+                <td>25</td>
+                <td>Karthe</td>
+                <td>6</td>
+                <td>A</td>
+              </tr>
+              <tr>
+                <td>101112</td>
+                <td>25</td>
+                <td>Eashwar</td>
+                <td>6</td>
+                <td>A</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+        <br/>
+        <div class="row">
+          <div class="col-10"></div>
+           <div class="col-2">
+              <input class="submit-button btn btn-success" type="submit" value="preview" name="submit_target">
+           </div>
+       </div>
+    
+    </form>
+   
+  </div>
+
+
+{% endblock content %}

@@ -1,0 +1,79 @@
+{% extends 'index_base.html' %}
+{% block content %}
+
+<head>
+   
+    <link rel="stylesheet" href="../../static/css/principal_report.css">
+ 
+</head>
+
+<body>
+    <div class="continer">
+        <div id="header">
+            <h2>LaPIS - Principal Report</h2>
+        </div>
+        <br><br>
+        <div class="drop">
+            <div class="dropdown" id="d1">
+                <label  for="school-names">School Name</label>
+                <select class="dropdowns" name="school-names" id="select-school" onchange="selectClass()">
+                    <!-- <option value="None">Select School Name</option> -->
+                </select>
+            </div>
+            <div class="dropdown" id="d2">
+                <label for="class">Class</label>
+                <select class="dropdowns" name="class" id="class">
+                    <option value="None">Select Class</option>
+                </select>
+            </div>
+            <!-- <div class="dropdown" id="d3">
+                <label for="Section">Section:</label>
+                <select class="dropdowns" name="section" id="Section" onchange="NameStudent()">
+                    <option value="None">Select Section</option>
+                </select>
+            </div>
+            <div class="dropdown" id="d4">
+                <label for="student-name">Name</label>
+                <select class="dropdowns" name="student-name" id="student-names">
+                    <option value="None">Select Student Name</option>
+                </select>
+            </div>
+            <div class="dropdown" id="d5">
+                <label for="student-name">Subject</label>
+                <select class="dropdowns" name="student-name" id="student-names">
+                    <option value="None">Select Subject</option>
+                </select>
+            </div> -->
+        </div>
+        <br><br>
+        <div class="buttonss">
+            <!-- <div id="button1">
+                <button type="submit" class="btn btn-primary but-size px-5" >Preview List</button>
+            </div> -->
+            <div id="button2">
+                <button type="button" class="btn btn-primary but-size px-4" onclick="createTable()">Generate Report</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="stu-table">
+        <table border="2" class="Table">
+            <!-- <tr>
+            <th>Schoo Name</th>
+            <th>Class</th>
+            <th>Section</th>
+            <th>Name</th>
+        </tr>
+
+        <tr>
+            <td>Lotus public schol</td>
+            <td>7</td>
+            <td>A</td>
+            <td>Chandra Shekar</td>
+        </tr> -->
+        </table>
+    </div>
+    <script src="../../static/js/principal_report.js"></script>
+
+{% endblock content %}

@@ -1,0 +1,62 @@
+#header{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+body{
+    margin: 0;
+}
+
+h2{
+    background-color: black;
+    padding: 1rem;
+    color: white;
+}
+
+.drop{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    margin: 0rem 3rem;
+    /* margin-left: 5rem; */
+    /* align-items: end;   */
+}
+
+.dropdown{
+    display: flex;
+    flex-direction: column;
+    margin: 0rem 1rem;
+}
+
+.dropdown label{
+    margin: 0%;
+}
+
+.buttonss{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0rem 9rem;
+}
+
+.but-size{
+    font-size: larger;
+}
+
+.stu-table{
+    display: flex;
+    justify-content: center;
+}
+
+.Table th{
+    padding: 1rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.Table td{
+    padding: 1rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}

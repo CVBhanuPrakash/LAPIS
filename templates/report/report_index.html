@@ -1,0 +1,31 @@
+{% extends 'index_base.html' %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="../../static/css/Report_Generation.css">
+</head>
+
+<body>
+
+    <div id="header">
+        <h2>LaPIS - Report</h2>
+    </div>
+    <div class="container"></div>
+    <div class="buttons">
+        <br><br><br>
+        <a  href="{{url_for('student_report')}}"><button type="submit" class="btn btn-primary btn-lg">Student Report</button>
+        </a>
+    </div>
+    <div class="buttons">
+        <br><br>
+        <a href="{{url_for('teacher_report')}}"><button type="submit" class="btn btn-primary btn-lg">Teacher Report</button>
+        </a>
+    </div>
+    <div class="buttons">
+        <br><br>
+        <a href="{{url_for('principal_report')}}"><button type="submit" class="btn btn-primary btn-lg">Principal Report</button>
+        </a>
+    </div>
+    </div>
+</body>
+
+{% endblock content %}

@@ -1,0 +1,143 @@
+{% extends 'index_base.html' %}
+
+{% block content %}
+
+<head>
+  <link rel="stylesheet" href="../../static/css/lapis_styles.css">
+</head>
+  <div class="container" style="width: 74%;">
+
+    <h3 style="text-align: center;"> UPLOAD OMR RESPONSE </h3>
+                  {% if message[0] %}
+                          <p class="positive_message">{{ message[1] }} </p>
+                          <br/>
+                    {% elif message[0]==False %}
+                        <p class="negative_message">{{ message[1] }} </p>
+                        <br/>
+                    {% else %}
+                      <br/>
+                      <br/>
+                    {% endif %}
+
+                    <br/>
+
+      <form class="form" action="{{ url_for('lapis_omr_response')}}" method="POST" enctype = "multipart/form-data">
+        
+        <div class="row">
+          <div class="col-4">
+            <div class="form-group" >
+              <label for="exampleFormControlInput1" style="margin-left:10px;">School Name</label>
+              <select class="form-control" id="school_names" name="school_code" required>
+                <option value="">Select School </option>
+                    {% if school_details %}
+                        {% for school in school_details %}
+                              <option value="{{ school['code']}}"> {{ school['name']}} - ( school code:{{ school['code']}})</option>
+                        {% endfor %}
+                      {% endif %} 
+              </select>
+
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group" >
+              <label for="exampleFormControlInput1" style="margin-left:10px;">Class</label>
+              <select class="form-control" id="class" name="std" required>
+                <option value="">Select Class </option>
+                        {% for class in range(6,10) %}
+                            <option value="{{ class }}"> {{ class }}</option>
+                    {% endfor %}
+             </select>
+
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group" >
+              <label for="exampleFormControlInput1" style="margin-left:10px;">Section</label>
+              {% set sections=['A','B','C','D','E','F','G']%}
+              <select class="form-control" id="class" name="section" required>
+                <option value="">Select Section</option>
+                        {% for sec in sections %}
+                            <option value="{{ sec }}"> {{ sec }}</option>
+                    {% endfor %}
+             </select>
+
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group" >
+              <label for="exampleFormControlInput1" style="margin-left:10px;">Subject</label>
+              <select class="form-control" id="class" name="subject" required>
+                <option value="">Select Subject</option>
+                <option value="Maths">Maths</option>
+                <option value="Science">Science</option>
+             </select>
+
+            </div>
+          </div>
+   
+        </div>
+
+
+        <br/>
+        <br/>
+        <div class="mb-3">
+          <label for="formFileMultiple" class="form-label" style="margin-left: 10px;"> Upload OMR Response</label>
+          <input class="form-control" type="file" id="formFileMultiple" name="input_file" accept=".csv,.xlsx" required>
+          <br/>
+         </div>
+      
+      
+         <p style="margin-left: 10px;">
+            Input format: <a href="{{ url_for('download_omr_response_sample_file')}}" type="text/csv" style="text-decoration: underline;" download> download sample format</a>
+         </p>
+  
+        
+        <div  style="width: 98%; margin-left:10px">
+        <div class="table-responsive-sm">          
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Lapis_roll_number</th>
+                <th>Question_paper_code</th>
+                <th>Question_number_in_question_paper</th>
+                <th>Response</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>101110</td>
+                <td>101</td>
+                <td>1</td>
+                <td>a</td>
+              </tr>
+              <tr>
+                <td>101111</td>
+                <td>101</td>
+                <td>1</td>
+                <td>a</td>
+              </tr>
+              <tr>
+                <td>101112</td>
+                <td>101</td>
+                <td>1</td>
+                <td>c</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+        <br/>
+        <div class="row">
+          <div class="col-10"></div>
+           <div class="col-2">
+              <input class="submit-button btn btn-success" type="submit" value="upload" name="submit_target">
+           </div>
+       </div>
+  
+    
+    </form>
+   
+       </div>
+
+
+{% endblock content %}

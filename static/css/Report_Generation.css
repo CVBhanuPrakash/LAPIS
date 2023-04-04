@@ -1,0 +1,34 @@
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#header{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+body{
+    margin: 0rem 0rem 0rem 7rem;
+}
+
+.container {
+    margin: 3rem 0rem 0rem 0rem ;
+}
+
+h2{
+    background-color: black;
+    padding: 1rem;
+    color: white;
+}
+
+.buttonss{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+}
+#button1{
+    margin: 0rem 7rem 0rem 20rem;
+}

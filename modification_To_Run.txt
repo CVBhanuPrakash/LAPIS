@@ -1,0 +1,7 @@
+1. In Functions/functions.py  at line 6. sys.path.append(<path of Modules directory in the current app>)
+
+2. In Static/js/* at 'const url' , vlaue need to be change according to the runnig localhost and port number.(to be done for all .js files)
+
+3. In Modules/database_module, in connect_db() need to change the db credentials if needed.
+
+4. In flask_app.py  at line 6. sys.path.append(<path of Functions directory in the current app>)

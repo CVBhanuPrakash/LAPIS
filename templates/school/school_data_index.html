@@ -1,0 +1,92 @@
+{% extends 'index_base.html' %}
+
+{% block content %}
+      
+<head>
+
+<style>
+
+
+  </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="../../static/css/lapis_styles.css">
+</head>
+
+  <div class="container" style="width: 74%;">
+    
+    <h3 style="text-align: center;"> SCHOOL  DATA  INSERTION </h3>
+
+                  <!-- insetion status  -->
+                    {% if insertion_status[0] %}
+                          <p class="positive_message">{{ insertion_status[1] }} </p>
+                          <br/>
+                    {% elif insertion_status[0]==False %}
+                        <p class="negative_message">{{ insertion_status[1] }} </p>
+                        <br/>
+                    {% else %}
+                      <br/>
+                      <br/>
+                    {% endif %}
+        
+          
+          <!-- Form starts  -->
+          <form class="form" action="{{ url_for('school_data')}}" method="POST" enctype = "multipart/form-data">
+
+            <div class="input-group mb-3 input-group-md form-input">
+              <div class="input-group-prepend">
+                <span class="input-group-text">School code</span>
+              </div>
+              <input class="form-control" type="number" placeholder="Enter School code (ex:112121)" name="school_code" pattern= "[0-9]"  title= "Enter only numbers"  required>
+              </div>
+
+            <div class="input-group mb-3 input-group-md">
+              <div class="input-group-prepend">
+                <span class="input-group-text">School Name</span>
+              </div>
+              <input class="form-control" type="text" placeholder="Enter school name" name="school_name" pattern= "[A-Za-z ]{2,}"  title= "Name should contain only alphabets  and atleast 2 letters" required>
+            </div>
+
+            <div class="input-group mb-3 input-group-md">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Date of joining</span>
+              </div>
+              <input class="form-control" type="date"  name="date_of_joing"  required>
+            </div>
+
+            <div class="input-group mb-3 input-group-md">
+              <div class="input-group-prepend">
+                <span class="input-group-text">School tag</span>
+              </div>
+              <input class="form-control" type="text" placeholder="Enter School Tag (Ex: LPS )" name="school_tag" pattern="[A-Za-z]{3}" title="Only Three letter allowed " required>
+            </div>
+
+            <div class="input-group mb-3 input-group-md">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Academic year start date</span>
+              </div>
+              <input class="form-control" type="date" id="formFileMultiple" name="academic_year_start"  required>
+            </div>
+      
+            <div class="input-group mb-3 input-group-md">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Academic year end date</span>
+              </div>
+              <input class="form-control" type="date" id="formFileMultiple" name="academic_year_end"  required>
+            </div>
+            <br/>
+              <div class="row">
+                 <div class="col-10"></div>
+                  <div class="col-2">
+                     <input class="submit-button btn btn-success" type="submit" name="submit_target" value="preview">
+                  </div>
+              </div>
+            
+          </form>
+
+
+        
+      </div>
+
+
+      
+{% endblock content %}

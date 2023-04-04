@@ -1,0 +1,126 @@
+{% extends 'index_base.html' %}
+
+{% block content %}
+
+<head>
+  <link rel="stylesheet" href="../../static/css/lapis_styles.css">
+</head>
+  <div class="container" style="width: 74%;">
+
+    <h3 style="text-align: center;"> UPLOAD ANSWER KEY </h3>
+                  {% if message[0] %}
+                          <p class="positive_message">{{ message[1] }} </p>
+                          <br/>
+                    {% elif message[0]==False %}
+                        <p class="negative_message">{{ message[1] }} </p>
+                        <br/>
+                    {% else %}
+                      <br/>
+                      <br/>
+                    {% endif %}
+
+                    <br/>
+
+      <form class="form" action="{{ url_for('lapis_answer_key')}}" method="POST" enctype = "multipart/form-data">
+        
+        <div class="row">
+          <div class="col">
+            <div class="form-group" >
+              <label for="exampleFormControlInput1" style="margin-left:10px;">Class</label>
+              <select class="form-control" id="class" name="std" required>
+                <option value="">Select Class </option>
+                        {% for class in range(6,10) %}
+                            <option value="{{ class }}"> {{ class }}</option>
+                    {% endfor %}
+             </select>
+
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group" >
+              <label for="exampleFormControlInput1" style="margin-left:10px;">Subject</label>
+              <select class="form-control" id="class" name="subject" required>
+                <option value="">Select Subject</option>
+                <option value="Maths">Maths</option>
+                <option value="Science">Science</option>
+             </select>
+
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group" >
+              <label for="exampleFormControlInput1" style="margin-left:10px;"> Question Paper Code</label>
+              <input class="form-control" type="number" placeholder=" Question Paper Code" name="qp_code" pattern= "[0-9]"  title= "Enter only numbers"  required>
+            </div>
+          </div>
+   
+        </div>
+
+
+        <br/>
+        <br/>
+        <div class="mb-3">
+          <label for="formFileMultiple" class="form-label" style="margin-left: 10px;"> Upload AnswerKey</label>
+          <input class="form-control" type="file" id="formFileMultiple" name="input_file" accept=".csv,.xlsx" required>
+          <br/>
+         </div>
+      
+      
+         <p style="margin-left: 10px;">
+            Input format: <a href="{{ url_for('download_answerkey_sample_file')}}" type="text/csv" style="text-decoration: underline;" download> download sample format</a>
+         </p>
+  
+        
+        <div  style="width: 98%; margin-left:10px">
+        <div class="table-responsive-sm">          
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Question_paper_code</th>
+                <th>Question_number</th>
+                <th>Question_id</th>
+                <th>Correct_option</th>
+                <th>Subject</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>104</td>
+                <td>1</td>
+                <td>C6SDT1</td>
+                <td>a</td>
+                <td>science</td>
+              </tr>
+              <tr>
+                <td>104</td>
+                <td>2</td>
+                <td>C6SDT2</td>
+                <td>c</td>
+                <td>science</td>
+              </tr>
+              <tr>
+                <td>104</td>
+                <td>3</td>
+                <td>C6SDT3</td>
+                <td>a</td>
+                <td>science</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+        <br/>
+        <div class="row">
+          <div class="col-10"></div>
+           <div class="col-2">
+              <input class="submit-button btn btn-success" type="submit" value="upload" name="submit_target">
+           </div>
+       </div>
+  
+    
+    </form>
+   
+       </div>
+
+
+{% endblock content %}

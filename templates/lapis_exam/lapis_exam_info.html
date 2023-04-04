@@ -1,0 +1,105 @@
+{% extends 'index_base.html' %}
+
+{% block content %}
+
+<head>
+  <link rel="stylesheet" href="../../static/css/lapis_styles.css">
+</head>
+  
+<div class="container" style="width: 74%;">
+    <h3 style="text-align: center;"> LAPIS EXAM INFO </h3>
+    
+                  {% if message[0] %}
+                          <p class="positive_message">{{ message[1] }} </p>
+                          <br/>
+                    {% elif message[0]==False %}
+                        <p class="negative_message">{{ message[1] }} </p>
+                        <br/>
+                    {% else %}
+                      <br/>
+                      <br/>
+                    {% endif %}
+
+
+      <form class="form" action="{{ url_for('lapis_exam_info')}}" method="POST" enctype = "multipart/form-data">
+          <div class="form-group" >
+            <div class="row">
+              <div class="col"><label for="exampleFormControlInput1" style="margin-left:10px;">Select School</label>
+                <select class="form-control" id="school_names" name="school_code" required>
+                  <option value="">Select School </option>
+                      {% if school_details %}
+                          {% for school in school_details %}
+                                <option value="{{ school['code']}}"> {{ school['name']}} - ( school code:{{ school['code']}})</option>
+                          {% endfor %}
+                        {% endif %} 
+                </select>
+
+              </div>
+              <div class="col">
+                <div class="form-group" >
+                  <label for="exampleFormControlInput1" style="margin-left:10px;">Class</label>
+                  <select class="form-control" id="class" name="std" required>
+                    <option value="">Select Class </option>
+                            {% for class in range(6,10) %}
+                                <option value="{{ class }}"> {{ class }}</option>
+                        {% endfor %}
+                 </select>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+
+        <br/>
+        <br/>
+        <div class="row">
+          <div class="col"> 
+            <div class="form-group" >
+              <label for="exampleFormControlInput1" style="margin-left:10px;">Science Exam Date</label>
+              <input class="form-control" type="date"  name="science_exam_date"  required>
+            </div>
+            </div>
+          <div class="col">
+            <div class="form-group" >
+              <label for="exampleFormControlInput1" style="margin-left:10px;">Science Question Paper Code</label>
+              <input class="form-control" type="number" placeholder=" Science Question Paper Code" name="science_qp_code" pattern= "[0-9]"  title= "Enter only numbers"  required>
+            </div>
+            </div>
+        </div>
+
+        <br/>
+        <br/>
+        
+        <div class="row">
+          <div class="col"> 
+            <div class="form-group" >
+              <label for="exampleFormControlInput1" style="margin-left:10px;">Maths Exam Date</label>
+              <input class="form-control" type="date"  name="maths_exam_date"  required>
+            </div>
+            </div>
+          <div class="col">
+            <div class="form-group" >
+              <label for="exampleFormControlInput1" style="margin-left:10px;"> Maths Question Paper Code</label>
+              <input class="form-control" type="number" placeholder="Maths Question Paper Code" name="maths_qp_code" pattern= "[0-9]"  title= "Enter only numbers"  required>
+            </div>
+            </div>
+        </div>
+          
+          
+        <br/>
+        <br/>
+        <br/>
+
+        <div class="row">
+          <div class="col-10"></div>
+           <div class="col-2">
+              <input class="submit-button btn btn-success" type="submit" value="submit" name="submit_btn">
+           </div>
+       </div>
+    
+    </form>
+   
+  </div>
+
+
+{% endblock content %}
